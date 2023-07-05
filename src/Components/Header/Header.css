@@ -1,0 +1,30 @@
+#mainHeader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 999;
+}
+
+.headerContainer {
+    padding: 1rem 7.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.navList {
+    display: flex;
+    gap: 2rem;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 3rem;
+}
+
+.listLink a {
+    color: black;
+}

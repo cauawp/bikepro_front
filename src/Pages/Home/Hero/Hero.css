@@ -1,0 +1,148 @@
+#hero {
+    user-select: none;
+}
+
+.heroSlide {
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.heroSlide .slideContainer {
+    display: flex;
+    transition: transform .75s;
+}
+
+#hero .slideItem {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#hero .slideBg {
+    height: 100vh;
+}
+
+#hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#hero .slideText {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    top: 6vw;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#hero .heroTitle {
+    user-select: text;
+    color: white;
+    max-width: 700px;
+    text-align: center;
+    margin-bottom: .5em;
+}
+#hero .heroParagraph {
+    user-select: text;
+    max-width: 426px;
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#hero .slideText .heroBtn {
+    user-select: none;
+    width: fit-content;
+}
+
+#hero .slideNav {
+    position: absolute;
+    display: flex;
+    pointer-events: none;
+    left: 7.5em;
+    right: 7.5em;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hero .slideNav button {
+    pointer-events: all;
+    cursor: pointer;
+    height: fit-content;
+    margin-top: 6vw;
+    background: rgba(0, 0, 0, 0.40);
+    backdrop-filter: blur(0.5px);
+    padding: .25vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: linear .25s;
+}
+
+#hero .slideNav button:hover {
+    background: rgba(0, 0, 0, 0.60);
+}
+
+#hero .slideThumb {
+    position: absolute;
+    bottom: 2.25em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    transition: linear .25s;
+}
+
+#hero .slideThumb div {
+    cursor: pointer;
+    transition: linear .25s;
+}
+
+#hero .thumb.active {
+    background-color: var(--base-color);
+    width: 4em;   
+    height: 2px;
+}
+
+#hero .thumb {
+    background-color: white;
+    width: 3em;
+    height: 2px;
+}
+
+#hero .slideTimer.active {
+    animation: linearWidth 7500ms linear;
+    background-color: var(--base-color);
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes linearWidth {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
