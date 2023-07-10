@@ -1,0 +1,27 @@
+#explore {
+}
+
+#explore .exploreCarrousel {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+#explore .carrouselGroup {
+    flex-shrink: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.exploreCarrousel .exploreItem {
+    flex: 0 0 100%;
+  text-align: center;
+  background: #f1f1f1;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
