@@ -82,8 +82,6 @@ const Hero = () => {
     }
   };
 
-  console.log(activeIndex);
-
   return (
     <>
       <section id="hero">
@@ -131,6 +129,7 @@ const Hero = () => {
             </div>
             {slideItems.map((e, index) => (
               <div
+                key={e.id}
                 className={`slideTimer ${
                   index === activeIndex ? "active" : ""
                 }`}

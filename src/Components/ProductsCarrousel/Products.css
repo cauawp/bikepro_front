@@ -1,0 +1,16 @@
+.product .productImgContent {
+    max-width: 387px;
+    max-height: 387px;
+    background: #F5F5F5;
+}
+.product .imgContainer {
+    max-width: 341px;
+}
+.product img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+.product img.active {
+    display: block !important;
+}

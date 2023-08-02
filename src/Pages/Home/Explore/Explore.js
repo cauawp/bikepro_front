@@ -33,34 +33,75 @@ const carrouselItems = [
 ];
 
 const Explore = () => {
+  const [index, setIndex] = useState(0);
+
+  const modIndex = (n, m) => {
+    let result = n % m;
+    return result >= 0 ? result : result + m;
+  };
+
+  const prevExplore = (e) => {
+    e.preventDefault();
+    if (index <= 0) {
+      setIndex(carrouselItems.length - 1);
+    } else {
+      setIndex(index - 1);
+    }
+    console.log(index);
+  };
+
+  const nextExplore = (e) => {
+    e.preventDefault();
+
+    setIndex((index + 1) % carrouselItems.length);
+    console.log(index);
+  };
+
   return (
     <>
-      <sextion id="explore">
-        <div className="exploreContainer container">
-          <h1 className="title2">Explore as bicicletas</h1>
-          <div className="exploreCarrouselControll">
-            <button onClick={scrollLeft}>
-              PREV
-              <ArrowLeft />
-            </button>
-            <button onClick={scrollRight}>
-              NEXT
-              <ArrowRight />
-            </button>
+      <div className="exploreContainer">
+        <div className="exploreTop">
+          <div className="exploreTopContainer container">
+            <h1 className="title2">Explore as bicicletas</h1>
+            <div className="exploreCarrouselControll">
+              <button onClick={prevExplore}>
+                <ArrowLeft />
+              </button>
+              <button onClick={nextExplore}>
+                <ArrowRight />
+              </button>
+            </div>
           </div>
-          <div className="exploreCarrousel">
-            {carrouselItems.map((item, index, array) => (
-              <div key={item.id} className={`exploreItem`}>
+        </div>
+        <div className="exploreCarrousel">
+          {carrouselItems.map((item, i, array) => {
+            const indexLeft = modIndex(index - 1, carrouselItems.length);
+            const indexRight = modIndex(index + 1, carrouselItems.length);
+
+            let className = "card";
+
+            if (i === index) {
+              className = "card card-active";
+            } else if (i === indexRight) {
+              className = "card card-right";
+            } else if (i === indexLeft) {
+              className = "card card-left";
+            } else className = "card";
+
+            return (
+              <div key={item.id} className={className}>
                 <img src={item.img} alt="SLA" />
                 <div className="exploreText">
                   <h1>{item.title}</h1>
-                  <Link to="/">{item.btn}</Link>
+                  <Link className="exploreBtn btn" to="/">
+                    {item.btn}
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </sextion>
+      </div>
     </>
   );
 };

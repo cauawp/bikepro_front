@@ -1,0 +1,7 @@
+.carrouselContainer {
+    display: flex;
+}
+
+.carrouselContainer * {
+    flex-shrink: 0;
+}
