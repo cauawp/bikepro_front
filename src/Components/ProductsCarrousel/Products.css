@@ -2,6 +2,18 @@
     max-width: 387px;
     max-height: 387px;
     background: #F5F5F5;
+    position: relative;
+}
+.product .productImgContent img{
+    opacity: 0;
+    margin-left: -50px;
+    animation: fade .75s forwards;
+}
+.product .favoriteBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
 }
 .product .imgContainer {
     max-width: 341px;
@@ -13,4 +25,43 @@
 }
 .product img.active {
     display: block !important;
+}
+.productChangeColor {
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.product .color {
+    border-radius: 100%;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    position: relative;
+    transition: linear .25s;
+}
+.product .color.active {
+    border-radius: 100%;
+}
+
+.product .color.active::after {
+    content: '';
+    border: 1px solid #F5F5F5;
+    border-radius: 100%;
+    height: 16px;
+    width: 16px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+
+@keyframes fade {
+    to {
+        opacity: initial;
+        margin-left: initial;
+    }
 }

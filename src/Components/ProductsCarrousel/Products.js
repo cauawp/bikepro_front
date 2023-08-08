@@ -6,7 +6,6 @@ import ProductsArray from "./ProductsArray";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-
   const [colorProduct, setColorProduct] = useState([]);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const handleColorClick = (productIndex, colorIndex) => {
+  const colorClick = (productIndex, colorIndex) => {
     setColorProduct((prevColorProduct) => {
       const newColorProduct = [...prevColorProduct];
       newColorProduct[productIndex] = colorIndex;
@@ -37,7 +36,7 @@ const Products = () => {
 
   return (
     <>
-      {ProductsArray.map((product, productIndex, array) => {
+      {products.map((product, productIndex, array) => {
         return (
           <div className="product" key={product._id}>
             <div className="productContainer">
@@ -63,30 +62,35 @@ const Products = () => {
                       </div>
                     )
                   )}
+                </div>
+                <button className="favoriteBtn">Favorite</button>
+                <div className="productChangeColor">
                   {Object.entries(product.productColors).map(
-                    ([color, images], indexObject) => {
-                      console.log(indexObject);
-                      return (
-                        <div
-                          className={`color color-${color}`}
-                          onClick={() =>
-                            handleColorClick(productIndex, indexObject)
-                          }
-                        >
-                          {color}
-                        </div>
-                      );
-                    }
+                    ([color, images], indexObject) => (
+                      <React.Fragment key={color}>
+                        {images.map((image, index) => (
+                          <div
+                            key={index}
+                            className={`color color-${color} ${
+                              indexObject === colorProduct[productIndex]
+                                ? "active"
+                                : ""
+                            }`}
+                            style={{ backgroundColor: `#${image.colorHex}` }}
+                            onClick={() =>
+                              colorClick(productIndex, indexObject)
+                            }
+                          ></div>
+                        ))}
+                      </React.Fragment>
+                    )
                   )}
                 </div>
-                <button>Favorite</button>
-                <button>Compare</button>
-                <div className="productChangeColor"></div>
               </div>
               <div className="productInfo">
                 <div className="productInfoContainer">
                   <div className="infoLeft">
-                    <div className="productName"></div>
+                    <div className="productName">{product.productTitle}</div>
                     <div className="productAssesments"></div>
                   </div>
                   <div className="infoRight">
