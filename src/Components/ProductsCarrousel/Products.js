@@ -2,28 +2,41 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Products.css";
 
+import ProductFeedbacks from "./ProductFeedbacks";
+import ProductFavorited from "./ProductFavorited";
+
 import ProductsArray from "./ProductsArray";
 
-const Products = () => {
+const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [colorProduct, setColorProduct] = useState([]);
+  const [userId, setUserId] = useState(null);
 
+  //USERID
+  const storedUserId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
   useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await axios.get("http://localhost:3333/products");
         const productsData = response.data;
-        setProducts(productsData);
-
-        // Initialize colorProduct state for each product with 0 (default index)
+        setProducts(
+          productsData.filter(
+            (product) => product.productCategory === props.Category
+          )
+        );
         setColorProduct(new Array(productsData.length).fill(0));
       } catch (error) {
         console.error("Erro ao obter os produtos:", error);
-        setProducts([]); // Limpar a lista em caso de erro
+        setProducts([]);
       }
     }
 
     fetchProducts();
+
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
   }, []);
 
   const colorClick = (productIndex, colorIndex) => {
@@ -37,14 +50,21 @@ const Products = () => {
   return (
     <>
       {products.map((product, productIndex, array) => {
+        const porcentagem =
+          (parseFloat(product.productLastPrice) /
+            parseFloat(product.productPrice)) *
+          100;
+
+        const desconto = -(100 - porcentagem);
+
         return (
-          <div className="product" key={product._id}>
+          <div className="product" key={product._id} ref={props.ProductProps}>
             <div className="productContainer">
               <div className="productImgContent">
                 <div className="imgContainer">
                   {Object.entries(product.productColors).map(
                     ([color, images], indexObject) => (
-                      <div key={color}>
+                      <React.Fragment key={color}>
                         {images.map((image, index) => (
                           <img
                             key={index}
@@ -59,11 +79,18 @@ const Products = () => {
                             }`}
                           />
                         ))}
-                      </div>
+                      </React.Fragment>
                     )
                   )}
                 </div>
-                <button className="favoriteBtn">Favorite</button>
+                {isNaN(desconto) ? (
+                  ""
+                ) : (
+                  <p className="offerProduct">{`${desconto.toFixed(
+                    0
+                  )}% OFF`}</p>
+                )}
+                <ProductFavorited productId={product._id}></ProductFavorited>
                 <div className="productChangeColor">
                   {Object.entries(product.productColors).map(
                     ([color, images], indexObject) => (
@@ -91,13 +118,22 @@ const Products = () => {
                 <div className="productInfoContainer">
                   <div className="infoLeft">
                     <div className="productName">{product.productTitle}</div>
-                    <div className="productAssesments"></div>
+                    <div className="productAssesments">
+                      <ProductFeedbacks
+                        productId={product._id}
+                      ></ProductFeedbacks>
+                    </div>
                   </div>
                   <div className="infoRight">
-                    <div className="productLastPrice">
-                      {product.productLastPrice}
-                    </div>
-                    <div className="productPrice">{product.productPrice}</div>
+                    {product.productLastPrice !== null &&
+                    product.productLastPrice !== "" ? (
+                      <div className="productLastPrice">
+                        R${product.productLastPrice}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+                    <div className="productPrice">R${product.productPrice}</div>
                   </div>
                 </div>
               </div>

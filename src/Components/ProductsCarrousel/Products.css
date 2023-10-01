@@ -1,27 +1,38 @@
 .product .productImgContent {
-    max-width: 387px;
-    max-height: 387px;
+    width: 337px;
+    height: 337px;
     background: #F5F5F5;
     position: relative;
 }
 .product .productImgContent img{
     opacity: 0;
-    margin-left: -50px;
-    animation: fade .75s forwards;
+    animation: fade .25s forwards;
 }
 .product .favoriteBtn {
     position: absolute;
     right: 0;
     top: 0;
     z-index: 99;
+}   
+.offerProduct {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99;
 }
 .product .imgContainer {
-    max-width: 341px;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 .product img {
     width: 100%;
+    max-height: 300px;
     height: auto;
     display: none;
+    opacity: 1 !important;
 }
 .product img.active {
     display: block !important;
@@ -30,8 +41,8 @@
     display: flex;
     gap: 1rem;
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 1.5rem;
+    bottom: 1rem;
 }
 .product .color {
     border-radius: 100%;
@@ -44,7 +55,6 @@
 .product .color.active {
     border-radius: 100%;
 }
-
 .product .color.active::after {
     content: '';
     border: 1px solid #F5F5F5;
@@ -58,10 +68,97 @@
     margin: auto;
     position: absolute;
 }
-
 @keyframes fade {
     to {
         opacity: initial;
         margin-left: initial;
     }
+}
+.productInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.productInfoContainer .productName {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    max-width: 260px;
+}
+
+.favoriteBtn {
+    cursor: pointer;
+    transition: linear .25s;
+}
+
+.favoriteBtn.favorited svg {
+    animation: favoriteAnimation .5s forwards;
+}
+
+.favoriteBtn svg path:nth-child(1) {
+    fill: transparent;
+}
+
+.favoriteBtn.favorited svg path {
+    fill: red;
+}
+
+@keyframes favoriteAnimation {
+    0% {
+        transform: rotate3d(0, 1, 0, 0) translateY(0);
+    }
+    25% {
+        transform: rotate3d(0, 1, 0, 0) translateY(-25%);
+    }
+    50% {
+        transform: rotate3d(0, 1, 0, 90deg) translateY(-25%);
+    }
+    75% {
+        transform: rotate3d(0, 1, 0, 180deg) translateY(-25%);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 180deg) translateY(0);
+    }
+}
+
+.productAssesments {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.starsContainer {
+    display: flex;
+    gap: 0.375rem;
+}
+
+.productAssesments span {
+    color: #9c9c9c;
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24%;
+}
+
+.infoRight {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.infoRight .productLastPrice {
+    color: var(--neutras-200, #C6C6C6);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.infoRight .productPrice {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
 }

@@ -11,6 +11,9 @@ import { ReactComponent as PersonIcon } from "./imgs/person-icon.svg";
 import { ReactComponent as SearchIcon } from "./imgs/search-icon.svg";
 
 const Header = (props) => {
+  const storedUserId =
+    sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
   return (
     <>
       <div id="mainHeader">
@@ -38,7 +41,7 @@ const Header = (props) => {
             <div>
               <SearchIcon></SearchIcon>
             </div>
-            <Link to="/login">
+            <Link to={storedUserId !== null ? "/conta" : "/login"}>
               <PersonIcon></PersonIcon>
             </Link>
             <div>

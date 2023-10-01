@@ -1,5 +1,18 @@
+.carrouselTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carrouselControll {
+    display: flex;
+    gap: 2vw;
+}
+
 .carrouselContainer {
     display: flex;
+    gap: 2rem;
+    transition: transform .25s;
 }
 
 .carrouselContainer * {

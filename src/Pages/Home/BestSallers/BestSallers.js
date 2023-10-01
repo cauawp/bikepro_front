@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import ProductsCarrousel from "../../../Components/ProductsCarrousel/ProductsCarrousel";
+import "./BestSallers.css";
 
 const BestSallers = () => {
   return (
     <>
-      <ProductsCarrousel></ProductsCarrousel>
+      <section id="bestSallers">
+        <ProductsCarrousel productCategory="Bicicleta"></ProductsCarrousel>
+      </section>
     </>
   );
 };

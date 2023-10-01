@@ -1,0 +1,23 @@
+.notify {
+    background: #F9B404;
+    color: black;
+    animation: fade .75s forwards;
+    z-index: 9999999;
+    transition: linear .75s;
+}
+@keyframes fade {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.notification-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
