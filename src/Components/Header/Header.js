@@ -16,7 +16,7 @@ const Header = (props) => {
 
   return (
     <>
-      <div id="mainHeader">
+      <div id="mainHeader" className={props.headerClass}>
         <div className="headerContainer">
           <Link to="/" id="mainLogo">
             <Logo></Logo>

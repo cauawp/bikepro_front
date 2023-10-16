@@ -1,0 +1,121 @@
+#mainHeader.sticky {
+    position: sticky;
+}
+
+#productHero {
+    padding: 0 7.5vw;
+}
+
+.productPageHero {
+    display: flex;
+}
+
+/*PRODUCT PREVIEW*/
+.productPreview {
+    width: 807px;
+    height: 680px;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productPreview {
+    position: relative;
+}
+
+.productCarouselContainer {
+    transition: transform .25s;
+    display: flex;
+}
+
+.productCarouselContainer img {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.productCarouselNav {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    top: 0;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+.productCarouselNav button {
+    background: black;
+    color: white;
+    padding: 1vw;
+    pointer-events: all;
+}
+
+.previewThumbContainer {
+    display: flex;
+    overflow: hidden;
+    gap: .5vw;
+    position: absolute;
+    bottom: 2vw;
+    left: 0;
+    right: 0;
+    justify-content: center;
+}
+
+.productHeroThumb {
+    height: 72px;
+    width: 72px;
+    background: #DDDDDD;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.productHeroThumb.active:after {
+    width: 100%;
+}
+
+.productHeroThumb:after {
+    transition: linear .25s;
+    content: '';
+    height: 2px;
+    width: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: black;
+}
+
+.productHeroThumb.active img {
+    opacity: 1;
+}
+.productHeroThumb img {
+    opacity: 0.5;
+    width: 100%;
+}
+
+.productZoomLens {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 11;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.zoomedImage {
+}

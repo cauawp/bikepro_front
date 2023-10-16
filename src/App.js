@@ -4,18 +4,18 @@ import Home from "./Pages/Home/Home";
 
 import Account from "./Pages/Account/Account";
 import Sign from "./Pages/Account/Sign";
+import ProductRoutes from "./Pages/Product/ProductRoutes";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route Component={Home} path="/" />
-          <Route Component={Sign} path="/cadastro" />
-          <Route Component={Sign} path="/login" />
-          <Route Component={Account} path="/conta" />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route Component={Home} path="/" />
+        <Route Component={Sign} path="/cadastro" />
+        <Route Component={Sign} path="/login" />
+        <Route Component={Account} path="/conta" />
+        <Route Component={ProductRoutes} path="/products/*" />
+      </Routes>
     </>
   );
 }

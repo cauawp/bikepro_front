@@ -5,6 +5,8 @@ import Explore from "./Explore/Explore";
 import BestSallers from "./BestSallers/BestSallers";
 import "./Home.css";
 import Loader from "../../Components/Loader/Loader";
+import FindIdealBike from "./FindIdealBike/FindIdealBike";
+import Footer from "../../Components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
       <Hero></Hero>
       <Explore></Explore>
       <BestSallers></BestSallers>
+      <FindIdealBike></FindIdealBike>
+      <Footer></Footer>
     </>
   );
 };

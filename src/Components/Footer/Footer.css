@@ -1,0 +1,110 @@
+#footer {
+    color: white;
+    background: #000000;
+}
+
+.footerTop {
+    padding: 5rem 7.5vw 7.5rem 7.5vw;
+}
+
+.footerTopContent h3 {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 2rem;
+}
+
+.footerTopContent nav a {
+    font-family: Open Sans;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: white;
+    position: relative;
+}
+
+.footerTopContent nav a:hover::after {
+    width: 100%;
+}
+
+.footerTopContent nav a::after {
+    transition: linear .25s;
+    content: '';
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    margin: auto;
+
+}
+
+.footerTopContent nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footerBottom {
+    background: #393939;
+    padding: 2rem 7.5vw;
+}
+
+.footerBottomContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.footerBottomContent a, 
+.footerBottomContent span {
+    color: white;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24%;
+}
+
+.footerBottomContent span {
+    cursor: none;
+}
+
+.footerTopContent {
+    display: flex;
+    gap: 5.5vw;
+}
+
+.footerInputDiv {
+    display: flex;
+    align-items: center;
+    border: 1px solid #727272;
+    width: max-content;
+    padding-right: 1rem;
+    border-radius: .5rem;
+}
+
+.footerInputDiv button {
+    cursor: pointer;
+    transition: linear .25s;
+}
+
+.footerInputDiv button:hover {
+    transform: scale(1.1);
+}
+
+.footerInput {
+    padding: 1.25rem 1rem;
+    color: white;
+}
+
+@media (max-width: 1023px) {
+    .footerTopContent {
+        flex-direction: column;
+    }
+}

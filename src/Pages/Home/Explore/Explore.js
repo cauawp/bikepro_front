@@ -74,7 +74,8 @@ const Explore = () => {
               </div>
             </div>
           </div>
-          <div className="exploreCarrousel">
+          <div className="exploreCarrousel container">
+            <div className="linearShadow"></div>
             {carrouselItems.map((item, i, array) => {
               const indexLeft = modIndex(index - 1, carrouselItems.length);
               const indexRight = modIndex(index + 1, carrouselItems.length);

@@ -6,18 +6,33 @@ const Loader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress < 100) {
-          return prevProgress + 1;
-        }
-        clearInterval(interval);
-        return prevProgress;
-      });
-    }, 60);
+    const loaderShown = sessionStorage.getItem("loaderShown");
 
-    return () => clearInterval(interval);
+    if (!loaderShown) {
+      document.body.classList.add("no-scroll");
+
+      const interval = setInterval(() => {
+        setProgress((prevProgress) => {
+          if (prevProgress < 100) {
+            return prevProgress + 1;
+          }
+          clearInterval(interval);
+          sessionStorage.setItem("loaderShown", "true");
+          document.body.classList.remove("no-scroll");
+          return prevProgress;
+        });
+      }, 10);
+
+      return () => {
+        clearInterval(interval);
+        document.body.classList.remove("no-scroll");
+      };
+    }
   }, []);
+
+  if (sessionStorage.getItem("loaderShown")) {
+    return <></>;
+  }
 
   return (
     <div className={`loader ${progress === 100 ? "hidden" : ""}`}>
@@ -28,7 +43,9 @@ const Loader = () => {
         >
           <BikeIcon />
         </span>
-        <div className="loader-bar">{progress}%</div>
+        <div className="loader-bar">
+          <span>{progress}</span>%
+        </div>
       </div>
     </div>
   );

@@ -5,3 +5,7 @@
 #explore {
 
 }
+
+.loader-visible {
+    overflow-y: hidden;
+}

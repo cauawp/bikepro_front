@@ -7,27 +7,29 @@
     background-color: #F9B404;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
     z-index: 99999999999;
-}
-
-.loader-content {
+  }
+  
+  .loader-content {
     text-align: center;
-}
-
-.loader-bar {
+  }
+  
+  .loader-bar {
     display: inline-block;
     font-size: 24px;
     color: black;
     padding: 8px 16px;
     border-radius: 4px;
     margin-top: 16px;
-}
-
-.loader.hidden {
+  }
+  
+  .loader.hidden {
+    border-radius: 2.5rem;
     transform: translateY(-100%);
     visibility: hidden;
+    transition: linear .5s;
 }
 
 .loaderIcon {
@@ -60,7 +62,22 @@
     font-size: 24px;
     font-weight: bold;
     display: inline-block;
-    animation: flip 2s infinite;
+  }
+  .loader-bar span{
+
+    position: relative;
+  }
+  .loader-bar span::after {
+    position: absolute;
+    background: #F9B404;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    animation: flip 1s infinite;
   }
   
+  .no-scroll {
+    overflow: hidden;
+  }
   

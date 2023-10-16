@@ -7,6 +7,7 @@ import { ReactComponent as FavoriteIcon } from "./imgs/favorite-icon.svg";
 const ProductFavorited = (props) => {
   const [favorite, setFavorite] = useState();
   const [firstTimeClick, setFirstTimeClick] = useState(true);
+  const [storageId, setStorageId] = useState();
 
   const storedUserId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");

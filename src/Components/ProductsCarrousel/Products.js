@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 import "./Products.css";
 
@@ -115,7 +117,10 @@ const Products = (props) => {
                 </div>
               </div>
               <div className="productInfo">
-                <div className="productInfoContainer">
+                <Link
+                  to={`/products/${product._id}`}
+                  className="productInfoContainer"
+                >
                   <div className="infoLeft">
                     <div className="productName">{product.productTitle}</div>
                     <div className="productAssesments">
@@ -135,7 +140,7 @@ const Products = (props) => {
                     )}
                     <div className="productPrice">R${product.productPrice}</div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
