@@ -1,0 +1,63 @@
+.confirmModal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Certifique-se de que o loading apareça sobre outros elementos */
+    transform: translateY(-100%);
+    animation: confirmModalShow .5s forwards;
+}
+
+@keyframes confirmModalShow {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.confirmContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 4rem;
+    border-radius: .5rem;
+    background: white;
+}
+
+.confirmContainer h1 {
+    margin-bottom: .5rem;
+}
+
+.confirmContainer p {
+    margin-bottom: 2rem;
+}
+
+.confirmButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.confirmButtons * {
+    cursor: pointer;
+}
+
+.cancelBtn {
+    color: black;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -0.4px;
+    font-size: 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white-gray);
+}

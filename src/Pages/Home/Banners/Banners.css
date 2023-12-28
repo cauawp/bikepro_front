@@ -1,0 +1,36 @@
+.bannersContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 7.5vw;
+}
+
+.bannersContainer img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.bannerLeft,
+.bannerRight {
+    position: relative;
+}
+
+.bannerTextContainer {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bannerTextContainer h1 {
+    margin-bottom: .5rem;
+}
+
+.bannerTextContainer p {
+    margin-bottom: 1rem;
+}
+

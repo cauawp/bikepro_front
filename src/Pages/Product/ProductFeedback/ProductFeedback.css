@@ -1,0 +1,345 @@
+.hided {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.btnRotated {
+    transform: rotate(180deg);
+}
+
+.feedbackLeftContainer,
+.feedbackRightContainer  {
+    transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.feedbackLeftContainer:not(.hided),
+.feedbackRightContainer:not(.hided) {
+    max-height: 1000px;
+}
+
+.feedbackButtonHide {
+    cursor: pointer;
+    transition: linear .25s;
+}
+
+.feedbackButtonHide {
+
+}
+
+.leftAssessInfo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-right: .15rem;
+}
+
+.starsLine {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .25rem;
+}
+
+.feedbackLeft {
+    padding: 2rem 4.25rem 6rem 7.5rem;
+    width: 100%;
+}
+
+.feedbackLeftContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--tiny-gray);
+}
+
+.feedbackLeftContainer .feedback:nth-last-child(2) {
+    border-bottom: none;
+}
+
+.feedbackTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feedbackRightTop {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.feedbackRightInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feedbackRight {
+    padding: 3rem 5rem;
+    background: var(--white);
+    position: relative;
+}
+
+.feedbackRightContainer {
+    position: sticky;
+    top: 0;
+    padding-top: 2.5rem;
+}
+
+.bgProgressFeedback {
+    height: .5rem;
+    background: #D1D5DB;
+    border-radius: .5rem;
+    width: 267px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progressBarFeedback {
+    position: absolute;
+    border-radius: .5rem;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--base-color);
+    z-index: 5;
+}
+
+.assessmentsInfo {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.assessmentsInfoItem {
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+}
+
+.feedbackNavControll {
+    margin-top: .5rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.feedbackNavControll .pagination {
+    display: flex;
+    gap: 1rem;
+}
+
+.feedbackPagItem {
+    border: 1px solid var(--tiny-gray);
+    background: var(--white);
+    padding: 0.375rem 0.875rem;
+    cursor: pointer;
+    transition: linear .25s;
+    font-family: Nunito Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.feedback {
+    animation: showAssessments .25s forwards;
+    margin-left: -50px;
+}
+
+.assessmentTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.assessmentTitle {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.assessmentTop h3{
+
+}
+
+.assessBtn {
+    width: 100%;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.createFeedback {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Certifique-se de que o loading apareça sobre outros elementos */
+    transform: translateY(-100%);
+    animation: confirmModalShow .5s forwards;
+}
+
+.createFeedbackContainer {
+    width: 589px;
+    max-height: 550px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+    border-radius: .5rem;
+    background: white;
+    position: relative;
+}
+
+.createFeedbackContainer::-webkit-scrollbar {
+    width: 20px;
+}
+
+.createFeedbackContainer::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+}
+  
+.createFeedbackContainer::-webkit-scrollbar-thumb {
+    background-color: black;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 8px solid white;  /* creates padding around scroll thumb */
+}
+
+
+.createFeedbackTop {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    top: 0;
+    background: white;
+    padding-top: 2.5rem;
+}
+
+.createFeedbackBtnContent {
+    margin-top: 1.5rem;
+    padding-bottom: 2.5rem;
+    bottom: 0;
+}
+
+.createFeedbackTop,
+.createFeedbackBtnContent {
+    position: sticky;
+    z-index: 20;
+    background-color: white;
+}
+
+.createFeedbackTop button {
+    cursor: pointer;
+}
+
+
+.createFeedbackTop button:hover svg{
+    animation: rotateButton .25s forwards;
+}
+
+@keyframes rotateButton {
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+.reviewStarsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleFeedbackInput label {
+    background: none;
+}
+
+.feedbackDesc {
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 1.125rem 1.5rem;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--white-gray);
+    border-radius: .5rem;
+    resize: none;
+}
+
+.divDescContainer {
+    position: relative;
+}
+
+.lenghtRemaining {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.feedbackDesc::placeholder {
+    color: var(--gray);
+}
+
+@keyframes showAssessments {
+    to {
+        margin-left: initial;
+    }
+}
+
+.feedbackPagItem.active {
+    background: var(--base-color);
+    border: 1px solid var(--base-color);
+}
+
+.createFeedbackStarContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.createFeedbackStarContent * {
+    cursor: pointer;
+}
+
+.createFeedback .leaveFeedbackStar.yellow path{
+    fill: #F9B404;
+}
+
+.leaveFeedbackStar.halfOff path {
+    fill: rgba(249, 180, 4, 0.25);
+}
+
+.createFeedbackTitleContent h1,
+.createFeedbackDescContent h1 {
+    margin-bottom: 1rem;
+}
+
+.reviewStarsContainer {
+    margin-bottom: 2rem;
+}
+
+.createFeedbackTitleContent {
+    margin: 2rem 0;
+}
+
+.createFeedbackLine {
+    height: 1px;
+    background: var(--white-gray);
+    width: 100%;
+}
+
+.createFeedbackDescContent {
+    margin-top: 1rem;
+}

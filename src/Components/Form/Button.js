@@ -1,10 +1,15 @@
 import React from "react";
 import "./FormStyles.css";
 
-const Button = (props) => {
+const Button = ({ disabled, btnType, onClick, buttonTitle }) => {
   return (
-    <button className="buttonForm" type={props.btnType}>
-      {props.buttonTitle}
+    <button
+      className={`buttonForm ${disabled ? "disabled" : ""}`}
+      type={btnType}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {buttonTitle}
     </button>
   );
 };

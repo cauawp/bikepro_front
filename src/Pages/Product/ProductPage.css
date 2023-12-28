@@ -1,40 +1,67 @@
-#mainHeader.sticky {
-    position: sticky;
-}
-
 #productHero {
     padding: 0 7.5vw;
 }
 
 .productPageHero {
+    position: relative;
+    gap: 1.5vw;
     display: flex;
 }
 
 /*PRODUCT PREVIEW*/
 .productPreview {
-    width: 807px;
-    height: 680px;
+    width: 50vw;/*807px*/
+    height: 80vh;/*680px*/
     background-color: #F5F5F5;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: sticky !important;
+    left: 0;
+    top: 0;
+}
+
+.productPageHero {
+    position: relative;
 }
 
 .productPreview {
     position: relative;
 }
 
+.heroSticky {
+    top: 0;
+    left: 0;
+    position: sticky;
+}
+
 .productCarouselContainer {
     transition: transform .25s;
     display: flex;
+    height: 100%;
 }
 
-.productCarouselContainer img {
+.productCarouselContainer .heroCarrouselItem {
     display: block;
     width: 100%;
     flex-shrink: 0;
     object-fit: contain;
+    overflow: hidden;
+    align-self: center;
+    /*align-self: center;*/
+}
+
+.productCarouselContainer img {
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
+    transform-origin: center;
+}
+
+@keyframes hideFade {
+    to{
+        opacity: initial;
+        pointer-events: initial;
+        display: flex;
+    }
 }
 
 .productCarouselNav {
@@ -46,9 +73,25 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    left: 0;
-    right: 0;
+    padding: 0 1.5vw;
     pointer-events: none;
+}
+
+.previewThumbContainer, .productCarouselNav {
+    margin-left: -30px;
+    opacity: 0;
+    animation: zoomFade .25s forwards;
+}
+
+.previewThumbContainer.hide, .productCarouselNav.hide {
+    display: none;
+}
+
+@keyframes zoomFade {
+    to {
+        opacity: initial;
+        margin-left: initial;
+    }
 }
 
 .productCarouselNav button {
@@ -56,6 +99,16 @@
     color: white;
     padding: 1vw;
     pointer-events: all;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: linear .25s;
+}
+
+.productCarouselNav button:hover{
+    transform: scale(1.1);
 }
 
 .previewThumbContainer {
@@ -67,15 +120,17 @@
     left: 0;
     right: 0;
     justify-content: center;
+    pointer-events: none;
 }
 
 .productHeroThumb {
-    height: 72px;
-    width: 72px;
+    height: 4.5vw;/*72px;*/
+    width: 4.5vw; /*72px;*/
     background: #DDDDDD;
     display: flex;
     align-items: center;
     position: relative;
+    pointer-events: all;
 }
 
 .productHeroThumb.active:after {
@@ -98,6 +153,7 @@
 .productHeroThumb.active img {
     opacity: 1;
 }
+
 .productHeroThumb img {
     opacity: 0.5;
     width: 100%;
@@ -118,4 +174,244 @@
 }
 
 .zoomedImage {
+}
+
+.zoomButton {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    cursor: pointer;
+    z-index: 11;
+    transition: linear .25s;
+}
+
+.zoomButton:hover {
+    transform: scale(1.1);
+}
+
+.zoomButton svg {
+    height: 3rem;
+    width: 3rem;
+}
+
+.zoomButton svg path {
+    fill: black
+}
+
+.magnify.active {
+    display: block;
+}
+
+.magnify {
+    border: 1px solid #393939;
+    background: #F5F5F5;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 500%;
+    background-position: center;
+    z-index: 999;
+    pointer-events: none;
+  
+}
+
+/*HERO RIGHT*/
+.productHeroRight {
+/*  max-width: 427px; */
+}
+
+.heroRightColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.heroRightColumn li{
+    padding: 1rem 0;
+    border-bottom: 1px solid #C6C6C6;
+}
+
+.productHeroColors {
+    display: flex;
+    gap: 1vw;
+}
+
+.productHeroColors .color {
+    height: 36px;
+    width: 36px;
+    border-radius: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.productHeroColors .color.active::after {
+    content: '';
+    border: 2px solid #F5F5F5;
+    border-radius: 100%;
+    height: 24px;
+    width: 24px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+
+.productHeroSizes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.productHeroSizes span {
+    border: 1px solid black;
+    border-radius: 100%;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: linear .25s;
+    position: relative;
+}
+
+.productHeroSizes span.active {
+    background: #000;
+    color: white;
+}
+
+.productHeroSizes span.active::after {
+    content: '';
+    border: 2px solid white;
+    border-radius: 100%;
+    height: 42px;
+    width: 42px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+
+.heroTop,
+.heroPriceContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.produtHeroStars {
+    display: flex;
+    align-items: center;
+    gap: .5vw;
+}
+
+.produtHeroStars span {
+    color: var(--neutral-grey-lighest, #D1D5DB);
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24%;
+}
+
+.produtHeroStars svg {
+    width: 24px;
+    height: 24px;
+}
+
+.heroRightColumn li {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.gradient {
+    position: relative;
+  }
+
+.gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 82.81%);
+    pointer-events: none;
+  }
+
+  .productDescription {
+    transition: linear .25s;
+  }
+
+  .readMoreBtn {
+    text-align: start;
+    color: var(--neutras-1000, #000);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+
+.likeBtn svg{
+    height: 32px;
+    width: 32px;
+}
+
+.heroButtons {
+    width: 100%;
+    margin-top: 2vw;
+}
+
+.cursorZoom {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.feedbackFlexContent {
+    display: flex;
+}
+
+
+
+/*ANIMATIONS*/
+
+
+
+@media (min-width: 2000px) {
+    .productPreview {
+        width: 807px;
+        height: 680px;
+    }
+
+    .productHeroThumb {
+        height: 72px;
+        width: 72px;
+    }
+
+    .productCarouselNav button {
+        padding: 1rem;
+    }
+
+    .productCarouselNav {
+        padding: 0 1.5rem;
+    }
+
+    .heroRightColumn li {
+        gap: 1rem;
+    }
+    
+    .heroButtons {
+        margin-top: 2rem;
+    }
+    
+    
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import PasswordInput from "../../Components/Form/PasswordInput";
 import EmailInput from "../../Components/Form/EmailInput";
 import NameInput from "../../Components/Form/NameInput";
@@ -34,6 +35,25 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (
+      (name,
+      email,
+      password,
+      confirmPassword === null || name,
+      email,
+      password,
+      confirmPassword === "" || !name,
+      !email,
+      !password,
+      !confirmPassword)
+    ) {
+      setNotifications([
+        ...notifications,
+        { notifyMsg: "Preencha todos os campos", isVisible: true },
+      ]);
+      return;
+    }
+
     if (confirmPassword !== password) {
       setPasswordsMatch(false);
       setNotifications([
@@ -67,27 +87,31 @@ const Register = (props) => {
 
   return (
     <>
-      <h1>Olá, bem vindo! Crie sua conta</h1>
+      <h1 className="title1">Olá, bem vindo! Crie sua conta</h1>
       <form onSubmit={handleSubmit}>
         <NameInput
           inputTitle="Insira seu nome"
           inputValue={name}
+          placeHolder={"Nome"}
           inputChange={(e) => setName(e.target.value)}
         />
         <EmailInput
           inputTitle="Insira seu email"
           inputValue={email}
+          placeHolder={"Email"}
           inputChange={(e) => setEmail(e.target.value)}
         />
         <PasswordInput
           labelClass={passwordsMatch === false ? "error" : ""}
           inputTitle="Crie sua senha"
+          placeHolder={"Senha"}
           inputValue={password}
           inputChange={(e) => setPassword(e.target.value)}
         />
         <PasswordInput
           labelClass={passwordsMatch === false ? "error" : ""}
           inputTitle="Confirme sua senha"
+          placeHolder={"Senha"}
           inputValue={confirmPassword}
           inputChange={(e) => setConfirmPassword(e.target.value)}
         />
@@ -103,6 +127,9 @@ const Register = (props) => {
         <p className="inputAlert">{props.inputAlert}</p>
         <Button buttonTitle="Criar conta" btnType="submit" />
       </form>
+      <p>
+        Já tem conta? <Link to="/login">Clique aqui</Link>
+      </p>
     </>
   );
 };

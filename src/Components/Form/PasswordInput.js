@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import "./FormStyles.css";
 
-const PasswordInput = (props) => {
+//ICON
+import { ReactComponent as EyeIcon } from "./imgs/eye-icon.svg";
+
+const PasswordInput = ({
+  inputTitle,
+  labelClass,
+  placeHolder,
+  inputValue,
+  inputChange,
+}) => {
   const [typeInput, setTypeInput] = useState(true);
 
   const changeInput = (e) => {
@@ -12,21 +21,23 @@ const PasswordInput = (props) => {
 
   return (
     <div className="divInput registerNameDiv">
-      <p>{props.inputTitle}</p>
-      <label
-        className={`labelInput ${props.labelClass}`}
-        htmlFor="passRegister"
-      >
+      <p>{inputTitle}</p>
+      <label className={`labelInput ${labelClass}`} htmlFor="passRegister">
         <input
           className="inputAcount"
           type={typeInput ? "password" : "text"}
           name=""
           id="passRegister"
-          placeholder="Senha"
-          value={props.inputValue}
-          onChange={props.inputChange}
+          placeholder={placeHolder}
+          value={inputValue}
+          onChange={inputChange}
         />
-        <button onClick={changeInput}>EYEICON</button>
+        <button
+          onClick={changeInput}
+          className={`toggleShowPassBtn ${!typeInput ? "passwordShow" : ""}`}
+        >
+          <EyeIcon />
+        </button>
       </label>
     </div>
   );

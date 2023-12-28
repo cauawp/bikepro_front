@@ -5,6 +5,7 @@ body {
 :root {
   /*COLORS*/
   --base-color: #F9B404;
+  --hover-btn-color: #eb9b07;
   --black: #0000;
   --dark-gray: #393939;
   --gray: #727272;
@@ -65,7 +66,6 @@ body {
   font-family: Open Sans;
   font-style: normal;
   font-weight: 600;
-  line-height: 24%;
 }
 .btn {
   background: var(--base-color);
@@ -75,4 +75,28 @@ body {
   line-height: 120%;
   letter-spacing: -0.4px;
   font-size: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s;
+}
+
+.btn:hover {
+  background: var(--hover-btn-color);
+}
+
+.btn2 {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.4px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

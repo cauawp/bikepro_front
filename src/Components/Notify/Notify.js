@@ -13,7 +13,7 @@ const Notify = (props) => {
   }, [props.isVisible, props.onClose]);
 
   return props.isVisible ? (
-    <div className="notify">{props.notifyMsg}</div>
+    <div className="notify sub-title2">{props.notifyMsg}</div>
   ) : null;
 };
 

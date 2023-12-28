@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import ProductZoom from "./ProductZoom";
 
+import { ReactComponent as ArrowLeft } from "../imgs/arrow-left_white.svg";
+import { ReactComponent as ArrowRight } from "../imgs/arrow-right_white.svg";
+
 const ProductPreview = (props) => {
   const { product, selectedColor } = props;
   const [selectedImages, setSelectedImages] = useState([]);
@@ -48,55 +51,30 @@ const ProductPreview = (props) => {
     setSelectedImages(images);
   }, [product, selectedColor, props]);
 
-  // Adicione um estado para controlar o zoom
-  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
-  const [zoomedImage, setZoomedImage] = useState(null);
-
-  // Crie uma função para lidar com o evento onMouseMove
-  const handleMouseMove = (e) => {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setZoomPosition({ x, y });
-  };
-
-  const handleMouseEnter = (url) => {
-    setZoomedImage(url);
-  };
-
-  const handleMouseLeave = () => {
-    setZoomedImage(null);
-  };
-
   return (
     <>
       <div className="productPreview">
-        <ProductZoom
-          position={zoomPosition}
-          zoomedImage={zoomedImage}
-          ProductImg={ProductImg}
-        />
         <div
           className="productCarouselContainer"
           style={{ transform: `translate(${position}px)` }}
         >
           {selectedImages.map((url, index) => (
-            <img
-              ref={ProductImg}
-              key={index}
-              src={url}
-              alt={`${selectedColor} - Image ${index + 1}`}
-              className={`thumbnailImg ${selectedColor}`}
-              onMouseMove={handleMouseMove}
-              onMouseEnter={() => handleMouseEnter(url)} // Adicione este evento onMouseEnter
-              onMouseLeave={handleMouseLeave} // Adicione este evento onMouseLeave
-            />
+            <div className="heroCarrouselItem" ref={ProductImg} key={index}>
+              <img
+                key={index}
+                src={url}
+                alt={`${selectedColor} - Image ${index + 1}`}
+                className={`thumbnailImg ${selectedColor}`}
+                draggable={false}
+              />
+            </div>
           ))}
         </div>
         <div className="previewThumbContainer">
           {selectedImages.map((url, index) => {
             return (
               <div
+                key={index}
                 className={`productHeroThumb ${
                   index === activeIndex ? "active" : ""
                 }`}
@@ -113,10 +91,18 @@ const ProductPreview = (props) => {
             );
           })}
         </div>
-        <div className="productCarouselNav">
-          <button onClick={prevSlide}>PREV</button>
-          <button onClick={nextSlide}>NEXT</button>
-        </div>
+        {selectedImages.length > 1 ? (
+          <div className="productCarouselNav">
+            <button onClick={prevSlide}>
+              <ArrowLeft />
+            </button>
+            <button onClick={nextSlide}>
+              <ArrowRight />
+            </button>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

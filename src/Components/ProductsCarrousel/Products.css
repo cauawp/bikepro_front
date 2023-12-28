@@ -10,15 +10,17 @@
 }
 .product .favoriteBtn {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1rem;
+    top: 1rem;
     z-index: 99;
 }   
 .offerProduct {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 1rem;
+    top: 1rem;
     z-index: 99;
+    background: white;
+    padding: .5rem 1rem;
 }
 .product .imgContainer {
     padding: 2rem;
@@ -26,6 +28,7 @@
     display: flex;
     align-items: center;
     width: 100%;
+    overflow: hidden;
 }
 .product img {
     width: 100%;
@@ -74,6 +77,9 @@
         margin-left: initial;
     }
 }
+.productInfo {
+    margin-top: 1rem;
+}
 .productInfoContainer {
     display: flex;
     justify-content: space-between;
@@ -86,6 +92,7 @@
     font-weight: 600;
     line-height: 24px;
     max-width: 260px;
+    margin-bottom: .5rem;
 }
 
 .favoriteBtn {

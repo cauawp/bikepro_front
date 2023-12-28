@@ -7,6 +7,9 @@ import "./Home.css";
 import Loader from "../../Components/Loader/Loader";
 import FindIdealBike from "./FindIdealBike/FindIdealBike";
 import Footer from "../../Components/Footer/Footer";
+import BikeStarter from "./BikeStarter/BikeStarter";
+import CompletePedal from "./CompletePedal/CompletePedal";
+import Banners from "./Banners/Banners";
 
 const Home = () => {
   return (
@@ -17,6 +20,9 @@ const Home = () => {
       <Explore></Explore>
       <BestSallers></BestSallers>
       <FindIdealBike></FindIdealBike>
+      <BikeStarter></BikeStarter>
+      <Banners></Banners>
+      <CompletePedal></CompletePedal>
       <Footer></Footer>
     </>
   );

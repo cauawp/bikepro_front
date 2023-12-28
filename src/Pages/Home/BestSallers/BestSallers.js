@@ -6,7 +6,10 @@ const BestSallers = () => {
   return (
     <>
       <section id="bestSallers">
-        <ProductsCarrousel productCategory="Bicicleta"></ProductsCarrousel>
+        <ProductsCarrousel
+          productCategory="Bicicleta"
+          productCarrouselTitle={"As bicicletas mais vendidas"}
+        />
       </section>
     </>
   );

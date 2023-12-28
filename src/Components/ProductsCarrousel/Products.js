@@ -9,27 +9,49 @@ import ProductFavorited from "./ProductFavorited";
 
 import ProductsArray from "./ProductsArray";
 
-const Products = (props) => {
+import LoadingModal from "../LoadingModal";
+
+const Products = ({ Category, ProductProps }) => {
   const [products, setProducts] = useState([]);
   const [colorProduct, setColorProduct] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   //USERID
   const storedUserId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
+
+  function shuffleProducts(products) {
+    for (let i = products.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [products[i], products[j]] = [products[j], products[i]];
+    }
+    return products;
+  }
+
   useEffect(() => {
     async function fetchProducts() {
       try {
+        setLoading(true);
         const response = await axios.get("http://localhost:3333/products");
         const productsData = response.data;
-        setProducts(
-          productsData.filter(
-            (product) => product.productCategory === props.Category
-          )
-        );
+
+        const filteredProducts =
+          Category === null || Category === undefined || Category === ""
+            ? productsData
+            : productsData.filter(
+                (product) => product.productCategory === Category
+              );
+
+        // Embaralhar a array de produtos
+        const shuffledProducts = shuffleProducts([...filteredProducts]);
+
+        setProducts(shuffledProducts);
         setColorProduct(new Array(productsData.length).fill(0));
+        setLoading(false);
       } catch (error) {
         console.error("Erro ao obter os produtos:", error);
+        setLoading(false);
         setProducts([]);
       }
     }
@@ -39,7 +61,7 @@ const Products = (props) => {
     if (storedUserId) {
       setUserId(storedUserId);
     }
-  }, []);
+  }, [Category]);
 
   const colorClick = (productIndex, colorIndex) => {
     setColorProduct((prevColorProduct) => {
@@ -51,6 +73,7 @@ const Products = (props) => {
 
   return (
     <>
+      {loading && <LoadingModal />}
       {products.map((product, productIndex, array) => {
         const porcentagem =
           (parseFloat(product.productLastPrice) /
@@ -58,9 +81,8 @@ const Products = (props) => {
           100;
 
         const desconto = -(100 - porcentagem);
-
         return (
-          <div className="product" key={product._id} ref={props.ProductProps}>
+          <div className="product" key={product._id} ref={ProductProps}>
             <div className="productContainer">
               <div className="productImgContent">
                 <div className="imgContainer">
@@ -85,7 +107,7 @@ const Products = (props) => {
                     )
                   )}
                 </div>
-                {isNaN(desconto) ? (
+                {isNaN(desconto) || product.productLastPrice === 0 ? (
                   ""
                 ) : (
                   <p className="offerProduct">{`${desconto.toFixed(
@@ -131,6 +153,7 @@ const Products = (props) => {
                   </div>
                   <div className="infoRight">
                     {product.productLastPrice !== null &&
+                    product.productLastPrice !== 0 &&
                     product.productLastPrice !== "" ? (
                       <div className="productLastPrice">
                         R${product.productLastPrice}
@@ -138,7 +161,9 @@ const Products = (props) => {
                     ) : (
                       <></>
                     )}
-                    <div className="productPrice">R${product.productPrice}</div>
+                    <div className="productPrice">
+                      R${product.productPriceDemo}
+                    </div>
                   </div>
                 </Link>
               </div>

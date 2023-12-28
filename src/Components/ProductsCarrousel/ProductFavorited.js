@@ -9,6 +9,8 @@ const ProductFavorited = (props) => {
   const [firstTimeClick, setFirstTimeClick] = useState(true);
   const [storageId, setStorageId] = useState();
 
+  console.log(favorite);
+
   const storedUserId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
 
@@ -17,7 +19,8 @@ const ProductFavorited = (props) => {
       if (storedUserId !== null) {
         try {
           const response = await axios.get(
-            `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`
+            `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
+            { headers: { authentication: storedUserId } }
           );
           if (response.data) {
             setFavorite(response.data);
@@ -36,7 +39,6 @@ const ProductFavorited = (props) => {
 
   const handleToggle = async (e) => {
     e.preventDefault();
-
     if (storedUserId === null) {
       navigate(`/login`);
     }
@@ -48,7 +50,8 @@ const ProductFavorited = (props) => {
         if (firstTimeClick) {
           const response = await axios.post(
             `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
-            { favorited: true }
+            { favorited: true },
+            { headers: { authentication: storedUserId } }
           );
           if (response.data) {
             setFavorite({ ...favorite, favorited: true });
@@ -57,7 +60,8 @@ const ProductFavorited = (props) => {
         } else {
           const response = await axios.patch(
             `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
-            { favorited: !favorite.favorited }
+            { favorited: !favorite.favorited },
+            { headers: { authentication: storedUserId } }
           );
           if (response.data) {
             setFavorite({ ...favorite, favorited: !favorite.favorited });
@@ -74,7 +78,9 @@ const ProductFavorited = (props) => {
   return (
     <>
       <button
-        className={`favoriteBtn ${favoriteTrusty ? "favorited" : ""}`}
+        className={`favoriteBtn ${favoriteTrusty ? "favorited" : ""} ${
+          props.favoriteClass
+        }`}
         onClick={handleToggle}
       >
         {favoriteTrusty ? (

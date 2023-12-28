@@ -33,16 +33,29 @@ const FindIdealBike = () => {
       <section id="findIdealBike">
         <div className="findIdealBikeContainer container">
           <div className="findIdealGrid">
+            <div className="bgShadowFind"></div>
             {Images.map((image, index) => {
-              return <img key={image.id} src={image.url} alt="" />;
+              return (
+                <img
+                  key={image.id}
+                  src={image.url}
+                  alt=""
+                  className="responsive-image"
+                />
+              );
             })}
             <div className="findIdealText">
-              <h1>Encontre a bicicleta ideial para você</h1>
-              <p>
+              <h1
+                className="title1"
+                style={{ marginBottom: ".5vw", maxWidth: "700px" }}
+              >
+                Encontre a bicicleta ideial para você
+              </h1>
+              <p className="paragraph1" style={{ maxWidth: "480px" }}>
                 Encontramos a bicicleta ideial para você atráves de algumas
                 perguntas
               </p>
-              <Link className="btn" to="/">
+              <Link className="btn" to="/" style={{ marginTop: "1vw" }}>
                 Encontrar a bicicleta ideial
               </Link>
             </div>

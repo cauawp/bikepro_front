@@ -1,22 +1,28 @@
 import React from "react";
 import "./FormStyles.css";
 
-const NameInput = (props) => {
+const NameInput = ({
+  inputTitle,
+  inputValue,
+  inputChange,
+  inputAlert,
+  placeHolder,
+}) => {
   return (
     <div className="divInput registerNameDiv">
-      <p>{props.inputTitle}</p>
+      <p>{inputTitle}</p>
       <label className="labelInput" htmlFor="nameRegister">
         <input
           className="inputAcount"
           type="text"
           name=""
           id="nameRegister"
-          placeholder=""
-          value={props.inputValue}
-          onChange={props.inputChange}
+          placeholder={placeHolder}
+          value={inputValue}
+          onChange={inputChange}
         />
       </label>
-      <p className="inputAlert">{props.inputAlert}</p>
+      <p className="inputAlert">{inputAlert}</p>
     </div>
   );
 };

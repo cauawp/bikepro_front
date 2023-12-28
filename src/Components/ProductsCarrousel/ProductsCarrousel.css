@@ -1,3 +1,7 @@
+.productsContainer .carrouselTop {
+    margin-bottom: 2vw;
+}
+
 .carrouselTop {
     display: flex;
     align-items: center;
@@ -6,7 +10,25 @@
 
 .carrouselControll {
     display: flex;
-    gap: 2vw;
+    gap: 2rem;
+}
+
+.carrouselControll button {
+    cursor: pointer;
+    padding: 1rem;
+}
+.carrouselControll button svg {
+
+transition: linear .25s;
+}
+
+.carrouselControll button:hover svg {
+    transform: scale(1.2);
+}
+
+.carrouselControll .arrowDisabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .carrouselContainer {
@@ -17,4 +39,10 @@
 
 .carrouselContainer * {
     flex-shrink: 0;
+}
+
+@media (min-width: 2000px) {
+    .productsContainer .carrouselTop {
+        margin-bottom: 2rem;
+    }
 }

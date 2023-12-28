@@ -4,7 +4,11 @@
     animation: fade .75s forwards;
     z-index: 9999999;
     transition: linear .75s;
+    padding: 1.5rem 4rem;
+    border-radius: .5rem;
+    border: 1px solid black;
 }
+
 @keyframes fade {
     from {
         transform: translateX(100%);
@@ -18,6 +22,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    right: 0;
-    top: 0;
+    right: 2rem;
+    top: 5rem;
+    gap: 1rem;
 }
