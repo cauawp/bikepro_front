@@ -14,6 +14,7 @@ const EmailInput = ({ inputTitle, inputValue, inputChange, placeHolder }) => {
           placeholder={placeHolder}
           value={inputValue}
           onChange={inputChange}
+          autoComplete="off"
         />
       </label>
     </div>

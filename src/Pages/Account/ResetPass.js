@@ -26,7 +26,7 @@ const ResetPass = () => {
 
   return (
     <div>
-      <h2>Redefinir Senha</h2>
+      <h1 className="title1">Redefinir Senha</h1>
       <form onSubmit={handleSubmit}>
         <EmailInput
           inputTitle="Insira seu email"

@@ -73,6 +73,11 @@ const Register = (props) => {
         password: password,
       });
 
+      setNotifications([
+        ...notifications,
+        { notifyMsg: "Conta criada com sucesso!", isVisible: true },
+      ]);
+
       console.log("Resposta do servidor:", response.data);
     } catch (error) {
       console.error("Erro ao fazer a requisição:", error);
@@ -126,10 +131,10 @@ const Register = (props) => {
         />
         <p className="inputAlert">{props.inputAlert}</p>
         <Button buttonTitle="Criar conta" btnType="submit" />
+        <p className="toggleSign paragraph1">
+          Já tem conta? <Link to="/login">Clique aqui</Link>
+        </p>
       </form>
-      <p>
-        Já tem conta? <Link to="/login">Clique aqui</Link>
-      </p>
     </>
   );
 };

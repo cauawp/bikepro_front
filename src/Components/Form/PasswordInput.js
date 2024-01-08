@@ -31,6 +31,7 @@ const PasswordInput = ({
           placeholder={placeHolder}
           value={inputValue}
           onChange={inputChange}
+          autoComplete="off"
         />
         <button
           onClick={changeInput}

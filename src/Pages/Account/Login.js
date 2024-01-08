@@ -7,8 +7,6 @@ import EmailInput from "../../Components/Form/EmailInput";
 import Button from "../../Components/Form/Button";
 import Checkbox from "../../Components/Form/Checkbox";
 
-// ... (importações e código anterior)
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +38,7 @@ const Login = () => {
         sessionStorage.setItem("userId", userId);
       }
 
-      navigate(-1);
+      navigate("/");
     } catch (error) {
       console.error("Erro ao fazer a requisição:", error);
     } finally {
@@ -53,7 +51,7 @@ const Login = () => {
       <h1 className="title1">
         Olá, bem-vindo! Faça seu login ou crie uma conta
       </h1>
-      <form onSubmist={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <EmailInput
           inputTitle="Insira seu email"
           inputValue={email}
@@ -64,7 +62,7 @@ const Login = () => {
           inputValue={password}
           inputChange={(e) => setPassword(e.target.value)}
         />
-        <div>
+        <div className="formBottom">
           <Checkbox
             inputTitle="Lembrar de mim"
             checkboxCheked={remember}
@@ -79,10 +77,10 @@ const Login = () => {
           btnType="submit"
           disabled={isLoading} // Desabilitar o botão enquanto estiver carregando
         />
+        <p className="toggleSign paragraph1">
+          Não tem conta? <Link to="/cadastro">Crie agora</Link>
+        </p>
       </form>
-      <p>
-        Não tem conta? <Link to="/cadastro">Crie agora</Link>
-      </p>
     </>
   );
 };

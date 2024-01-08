@@ -20,6 +20,7 @@ const NameInput = ({
           placeholder={placeHolder}
           value={inputValue}
           onChange={inputChange}
+          autoComplete="off"
         />
       </label>
       <p className="inputAlert">{inputAlert}</p>

@@ -25,4 +25,5 @@
     right: 2rem;
     top: 5rem;
     gap: 1rem;
+    z-index: 99;
 }

@@ -34,3 +34,17 @@
     margin-bottom: 1rem;
 }
 
+@media (max-width: 720px) {
+    .bannersContainer {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width: 332px) {
+    .bannerTextContainer  {
+        position: static;
+        color: black;
+        margin-bottom: 1rem;
+    }
+}

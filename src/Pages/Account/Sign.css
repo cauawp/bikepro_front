@@ -3,11 +3,44 @@
 }
 
 .signLeft {
-    padding: 0 7.5vw;
+    padding: 5vw 7.5vw;
     width: 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.signLeft form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 508px;
+}
+
+.toggleSign {
+    text-align: center;
+    margin-top: -.5rem;
+}
+
+.toggleSign a {
+    font-weight: 600;
+    color: var(--Neutras-1000, #000);
+}
+
+.formBottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.formBottom a {
+    font-weight: 600;
+    color: var(--Neutras-1000, #000);
+}
+
+.signLeft h1 {
+    margin-bottom: 2rem;
+    max-width: 508px;
 }
 
 .signRight {
@@ -24,14 +57,11 @@
     height: 100%;
     align-items: center;
     overflow: hidden;
-
 }
-
 
 .imgContainerSign img {
     width: 100%;
     max-width: 590px;
-    max-height: 694px;
     z-index: 5;
     padding: 3.5vw 0;
 }
@@ -51,4 +81,10 @@
     background: var(--base-color);
     height: 100vh;
     width: 60%;
+}
+
+@media (max-width: 1400px) {
+    .imgContainerSign img {
+        max-height: 694px;
+    }
 }
