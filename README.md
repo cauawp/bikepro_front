@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Bike Pro - Front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O Bike Pro é um projeto de front-end desenvolvido utilizando exclusivamente o framework React, juntamente com a dependência react-router-dom. Nesta versão inicial, o foco está na experiência para desktop, sem ênfase na responsividade. As páginas de Home, Login e Carrinho estão concluídas, enquanto a página de Produtos ainda está em desenvolvimento. No entanto, algumas funcionalidades estão pendentes nas páginas de Login e Carrinho, como redefinição de senha, inserção de informações de pagamento e endereço, e a conclusão do processo de compra.
 
-## Available Scripts
+## 🚀 Começando
 
-In the project directory, you can run:
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-### `npm start`
+Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📋 Pré-requisitos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+De que coisas você precisa para instalar o software e como instalá-lo?
 
-### `npm test`
+```
+- Node.js
+- npm (gerenciador de pacotes do Node.js)
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🔧 Instalação
 
-### `npm run build`
+Siga os passos abaixo para configurar o ambiente de desenvolvimento:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone o repositório para sua máquina local:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/cauawp/bikepro_front.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Navegue até o diretório do projeto:
 
-### `npm run eject`
+```bash
+cd bikepro_front
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Este comando iniciará a aplicação em modo de desenvolvimento. Abra http://localhost:3000 no seu navegador para visualizar o projeto.
+Repita essas etapas sempre que precisar iniciar o ambiente de desenvolvimento.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🛠️ Construído com
 
-## Learn More
+- [React](https://react.dev/) - Framework utilizado para a construção do front-end
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom) - Dependência para manipulação de rotas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ✒️ Autor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Cauã Wilian Pereira** - _Projeto Inteiro_ - [Cauã Wilian](https://github.com/cauawp)
 
-### Code Splitting
+## 📄 Licença
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
 
-### Analyzing the Bundle Size
+## 🎁 Demonstração
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="https://media.discordapp.net/attachments/1187424868506030080/1193792907161899048/bikepro-thumb.png?ex=65ae0148&is=659b8c48&hm=0ae21dd8503528d9fd71c76ab99a86a13f7918acf3e0a9aa1a7118c1c06c203f&=&format=webp&quality=lossless&width=741&height=417">
 
-### Making a Progressive Web App
+https://github.com/cauawp/bikepro_front/assets/94944114/c04b8ffd-87cb-4dd8-b58b-17d0f04f4307
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎁 Expressões de gratidão
 
-### Advanced Configuration
+- Conte a outras pessoas sobre este projeto 📢;
+- Convide alguém da equipe para uma cerveja 🍺;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+⌨️ com ❤️ por [Cauã Wilian](https://github.com/cauawp) 😊
