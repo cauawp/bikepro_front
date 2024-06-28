@@ -15,7 +15,7 @@ const DeleteProduct = ({ userId, productIdentifier, onDelete }) => {
   const handleConfirm = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3333/carts/${userId}/${productIdentifier}`,
+        `https://bikepro-api.onrender.com/carts/${userId}/${productIdentifier}`,
         {
           headers: { authentication: userId },
         }

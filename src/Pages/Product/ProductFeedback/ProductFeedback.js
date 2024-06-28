@@ -28,7 +28,7 @@ const ProductFeedback = () => {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3333/products/${productId}/feedbacks/`
+          `https://bikepro-api.onrender.com/products/${productId}/feedbacks/`
         );
         const feedbackStars = response.data.map((item) => item.stars);
         const sumStars = feedbackStars.reduce((acc, stars) => acc + stars, 0);
@@ -46,7 +46,7 @@ const ProductFeedback = () => {
         setTotalAssessments(totalAssess);
         setQntStars(feedbackStars);
         //setAssessments(response.data);
-        setAssessments(response.data.reverse()); // Reverse the order of feedbacks
+        setAssessments(response.data.reverse());
       } catch (error) {
         console.log(error);
       }

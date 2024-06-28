@@ -63,7 +63,11 @@ const Header = (props) => {
             </ul>
           </nav>
           <div className="headerIcons">
-            <SearchHeader onClick={() => setLooking(true)}></SearchHeader>
+            <SearchHeader 
+            //onClick={() => setLooking(true)}
+            onClick={() => console.log("EM BREVE!")}
+            
+            />
             <Link to={storedUserId !== null ? "/conta" : "/login"}>
               <PersonIcon></PersonIcon>
             </Link>

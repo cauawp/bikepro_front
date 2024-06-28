@@ -24,7 +24,7 @@ const Cart = () => {
   const [valueFreight, setValueFreight] = useState(0);
   const [subtotal, setSubtotal] = useState(0);
   const [productIds, setProductIds] = useState([]);
-  const [isLoading, setIsLoading] = useState(false); // Novo estado para controle de loading
+  const [isLoading, setIsLoading] = useState(false); 
 
   const storedUserId =
     sessionStorage.getItem("userId") || localStorage.getItem("userId");
@@ -34,7 +34,7 @@ const Cart = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:3333/carts/${storedUserId}`,
+          `https://bikepro-api.onrender.com/carts/${storedUserId}`,
           { headers: { authentication: storedUserId } }
         );
 
@@ -44,9 +44,8 @@ const Cart = () => {
         );
         setProductIds(productIdentifiers);
 
-        // Update the product quantity in the cart based on API data
         const updatedCartProducts = fetchedCartProducts.map((productCart) => {
-          const updatedProductQuantity = productCart.productQuantity; // Use API data directly
+          const updatedProductQuantity = productCart.productQuantity; 
 
           return {
             ...productCart,
@@ -101,12 +100,10 @@ const Cart = () => {
   });
 
   const updateSubtotal = (freightValue) => {
-    // Atualiza o subtotal somando o frete ao valor total dos produtos
     setSubtotal(valueTotal + parseFloat(freightValue));
   };
 
   const handleCepChange = (newCep) => {
-    // Atualiza o subtotal quando o CEP muda
     updateSubtotal(valueTotal, valueFreight, newCep);
   };
 
@@ -114,17 +111,17 @@ const Cart = () => {
 
   const handleProceed = async () => {
     try {
-      setIsLoading(true); // Ativar o estado de carregamento
+      setIsLoading(true);
 
       const response = await axios.patch(
-        `http://localhost:3333/carts/${storedUserId}`,
+        `https://bikepro-api.onrender.com/carts/${storedUserId}`,
         { valueTotal: valueTotal },
         { headers: { authentication: storedUserId } }
       );
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false); // Desativar o estado de carregamento, independentemente do resultado
+      setIsLoading(false); 
     }
   };
 

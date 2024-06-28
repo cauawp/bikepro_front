@@ -25,7 +25,7 @@ const ProductsCarrousel = ({ productCategory, productCarrouselTitle }) => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await axios.get("http://localhost:3333/products");
+        const response = await axios.get("https://bikepro-api.onrender.com/products");
         const productsData = response.data;
         const filteredProducts =
           productCategory === null ||

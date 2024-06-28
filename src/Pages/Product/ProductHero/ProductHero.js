@@ -34,7 +34,7 @@ const ProductHero = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3333/products")
+      .get("https://bikepro-api.onrender.com/products")
       .then((response) => {
         setProductIds(response.data);
       })
@@ -77,7 +77,7 @@ const ProductHero = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3333/carts/${storedUserId}`,
+        `https://bikepro-api.onrender.com/carts/${storedUserId}`,
         {
           products: [
             {

@@ -10,7 +10,7 @@ const ProductFeedbacks = (props) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3333/products/${props.productId}/feedbacks`)
+      .get(`https://bikepro-api.onrender.com/products/${props.productId}/feedbacks`)
       .then((res) => {
         const feedbackStars = res.data.map((item) => item.stars);
         const sumStars = feedbackStars.reduce((acc, stars) => acc + stars, 0);

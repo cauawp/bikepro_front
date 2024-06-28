@@ -27,7 +27,7 @@ const ToggleQuantity = ({ userId, initialQuantity, productIdentifier }) => {
   const updateProductQuantity = async (newQuantity) => {
     try {
       const response = await axios.patch(
-        `http://localhost:3333/carts/${userId}`,
+        `https://bikepro-api.onrender.com/carts/${userId}`,
         {
           productIdentifier: productIdentifier,
           productQuantity: newQuantity,

@@ -33,7 +33,7 @@ const Products = ({ Category, ProductProps }) => {
     async function fetchProducts() {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3333/products");
+        const response = await axios.get("https://bikepro-api.onrender.com/products");
         const productsData = response.data;
 
         const filteredProducts =

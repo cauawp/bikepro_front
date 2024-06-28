@@ -19,7 +19,7 @@ const ProductFavorited = (props) => {
       if (storedUserId !== null) {
         try {
           const response = await axios.get(
-            `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
+            `https://bikepro-api.onrender.com/products/${props.productId}/favorites/${storedUserId}`,
             { headers: { authentication: storedUserId } }
           );
           if (response.data) {
@@ -49,7 +49,7 @@ const ProductFavorited = (props) => {
       if (storedUserId !== null) {
         if (firstTimeClick) {
           const response = await axios.post(
-            `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
+            `https://bikepro-api.onrender.com/products/${props.productId}/favorites/${storedUserId}`,
             { favorited: true },
             { headers: { authentication: storedUserId } }
           );
@@ -59,7 +59,7 @@ const ProductFavorited = (props) => {
           }
         } else {
           const response = await axios.patch(
-            `http://localhost:3333/products/${props.productId}/favorites/${storedUserId}`,
+            `https://bikepro-api.onrender.com/products/${props.productId}/favorites/${storedUserId}`,
             { favorited: !favorite.favorited },
             { headers: { authentication: storedUserId } }
           );

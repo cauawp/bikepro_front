@@ -87,7 +87,6 @@ const Footer = () => {
                 <div className="footerRow">
                   <div className="followSocialNetworks">
                     <h2>Nos acompanhe nas redes sociais</h2>
-
                     <div className="socialNetworksIcons">
                       <a href="" target="_blank">
                         <FacebookIcon></FacebookIcon>

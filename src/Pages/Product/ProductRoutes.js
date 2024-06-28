@@ -1,8 +1,15 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import ProductPageModel from "./ProductPageModel";
 
 const ProductRoutes = () => {
+
+  const {pathname} = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <>
       <Routes>

@@ -10,15 +10,15 @@ const ResetPass = () => {
     e.preventDefault();
 
     try {
-      // Chame a API backend para solicitar redefinição de senha usando axios
+     
       const response = await axios.post(
-        "http://localhost:3333/reset-password",
+        "https://bikepro-api.onrender.com/reset-password",
         {
           username: email,
         }
       );
 
-      console.log(response.data.message); // ou faça o que for necessário com a resposta
+      console.log(response.data.message); 
     } catch (error) {
       console.error("Erro ao solicitar redefinição de senha:", error.message);
     }

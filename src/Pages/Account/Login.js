@@ -11,7 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Novo estado para controle de loading
+  const [isLoading, setIsLoading] = useState(false); 
   const navigate = useNavigate();
 
   const handleCheckboxChange = (isChecked) => {
@@ -22,9 +22,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      setIsLoading(true); // Ativar o estado de carregamento
+      setIsLoading(true); 
 
-      const response = await axios.post("http://localhost:3333/sessions", {
+      const response = await axios.post("https://bikepro-api.onrender.com/sessions", {
         username: email,
         password: password,
       });
@@ -42,7 +42,7 @@ const Login = () => {
     } catch (error) {
       console.error("Erro ao fazer a requisição:", error);
     } finally {
-      setIsLoading(false); // Desativar o estado de carregamento, independentemente do resultado
+      setIsLoading(false);
     }
   };
 
@@ -75,7 +75,7 @@ const Login = () => {
         <Button
           buttonTitle={isLoading ? "Carregando..." : "Entrar"}
           btnType="submit"
-          disabled={isLoading} // Desabilitar o botão enquanto estiver carregando
+          disabled={isLoading} 
         />
         <p className="toggleSign paragraph1">
           Não tem conta? <Link to="/cadastro">Crie agora</Link>

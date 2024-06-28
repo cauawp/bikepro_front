@@ -103,6 +103,22 @@
     color: white;
 }
 
+.socialNetworksIcons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.socialNetworksIcons a:hover {
+    transform: scale(1.1);
+}
+
+.socialNetworksIcons a {
+    transition: linear .2s;
+}
+
 @media (max-width: 1023px) {
     .footerTopContent {
         flex-direction: column;

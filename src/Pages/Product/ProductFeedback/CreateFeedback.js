@@ -28,11 +28,11 @@ const CreateFeedback = ({ onConfirm, onClose, setShowConfirmModal }) => {
       return;
     } else {
       try {
-        // Check if all fields are filled
+     
 
         setIsLoading(true);
         await axios.post(
-          `http://localhost:3333/products/${productId}/feedbacks/${userId}`,
+          `https://bikepro-api.onrender.com/products/${productId}/feedbacks/${userId}`,
           {
             stars: starsPost,
             title: titlePost,

@@ -67,7 +67,7 @@ const Register = (props) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3333/users", {
+      const response = await axios.post("https://bikepro-api.onrender.com/users", {
         name: name,
         username: email,
         password: password,
